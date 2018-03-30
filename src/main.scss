@@ -1,18 +1,21 @@
+$optima: #1a428a;
+$legolas: #f02d3a;
+
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-header h1 {
-  display: inline-block;
-  font-size: 72px;
-  text-transform: uppercase;
-  background: -webkit-linear-gradient(90deg, #f02d3a, aqua, #fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-bottom: 0.2em;
-  margin-bottom: 0;
+header h1{
+    display: inline-block;
+    font-size: 72px;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(90deg, $legolas, aqua, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-bottom: .2em;
+    margin-bottom: 0;
 }
 
 body {
@@ -24,7 +27,7 @@ body {
   padding: 0;
   font-weight: 200;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
@@ -37,7 +40,6 @@ nav {
   margin: 1em 0;
   padding: 0;
 }
-
 nav li {
   display: inline;
   margin-right: 1em;
@@ -46,50 +48,52 @@ nav li {
   transition: color 500ms;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
+
+  &:before{
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    background: $optima;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transition: 300ms ease-out;
+    transition: 300ms ease-out;
+  }
+  &:hover:before{
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+    transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  }
 }
-nav li:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  z-index: -1;
-  background: #1a428a;
-  -webkit-transform: scaleX(0);
-  transform: scaleX(0);
-  -webkit-transition-property: transform;
-  transition-property: transform;
-  -webkit-transform-origin: 0% 50%;
-  transform-origin: 0% 50%;
-  -webkit-transition: 300ms ease-out;
-  transition: 300ms ease-out;
-}
-nav li:hover:before {
-  -webkit-transform: scaleX(1);
-  transform: scaleX(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-}
+
 
 p, ul {
   margin: 10px 0;
 }
 
 .skills ul li {
-  margin-left: 30px;
+  margin-left: 30px;;
 }
 
 a {
-  color: #1a428a;
+  color: $optima;
   font-weight: 600;
   text-decoration: none;
-  border-bottom: 3px solid #1a428a;
+  border-bottom: 3px solid $optima;
   padding: 3px;
 }
 
 a:hover {
-  background-color: #1a428a;
+  background-color: $optima;
   color: white;
 }
 
@@ -101,10 +105,9 @@ a:active {
 a.active {
   border-bottom: none;
 }
-
-footer p > a {
-  color: #00b8d4;
-  border-bottom: 3px solid #00b8d4;
+footer p > a{
+    color: #00b8d4;
+    border-bottom: 3px solid #00b8d4;
 }
 
 .content-wrapper {
@@ -117,14 +120,15 @@ footer p > a {
 /*
  * HEADER
  */
+
 .header, header {
   align-items: center;
   background-color: #EFEFEF;
-  background-image: url("bg.jpg");
+  background-image: url('bg.jpg');
   background-position: cover;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  border-top: 4px solid #1a428a;
+  border-top: 4px solid $optima;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -136,15 +140,16 @@ footer p > a {
   text-align: center;
 }
 
-@media only screen and (max-device-width: 420px) {
+@media only screen and (max-device-width: 420px)  {
   .header, header {
     background-size: auto 100%;
   }
 }
+
 .header:before, header:before {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, .7);
   bottom: 0;
-  content: " ";
+  content: ' ';
   display: block;
   left: 0;
   position: absolute;
@@ -173,8 +178,9 @@ footer p > a {
 /*
  * SKILLS
  */
+
 .skills {
-  background: repeating-radial-gradient(circle at 0 0, #000, #666 75px);
+  background: repeating-radial-gradient(circle at 0 0,#000,#666 75px);
   color: deepskyblue;
 }
 
@@ -183,11 +189,9 @@ footer p > a {
   background-color: #444;
   color: #eee;
 }
-
 .footer h1, footer h1 {
   font-size: 16px;
 }
-
 .footer p, footer p {
   font-size: 14px;
 }
